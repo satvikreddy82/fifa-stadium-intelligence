@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Navbar } from '@/components/layout/navbar';
 import { Users, TrendingUp, AlertTriangle, RefreshCw, Brain, ArrowRight, Zap } from 'lucide-react';
 import { useCrowdStore } from '@/store/use-crowd-store';
