@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Navbar } from '@/components/layout/navbar';
-import { Users, TrendingUp, AlertTriangle, RefreshCw, Brain, ArrowRight, Zap } from 'lucide-react';
+import { Users, TrendingUp, AlertTriangle, RefreshCw, Brain, Zap } from 'lucide-react';
 import { useCrowdStore } from '@/store/use-crowd-store';
 import { useAppStore } from '@/store/use-app-store';
 import { generateHeatmapData, type HeatmapCell } from '@/lib/crowd-simulation';
