@@ -37,7 +37,7 @@ export default function VolunteerPage() {
   const [activeTab, setActiveTab] = useState<'tasks' | 'copilot' | 'leaderboard'>('tasks');
 
   const completeTask = (id: string) => {
-    setTasks(prev => prev.map(t => t.id === id ? { ...t, status: 'completed' as const } : t));
+    setTasks(prev => prev.map(t => t.id === id ? { ...t, status: 'completed' as const } as any : t));
     setCompletedTaskId(id);
     setTimeout(() => setCompletedTaskId(null), 2000);
   };

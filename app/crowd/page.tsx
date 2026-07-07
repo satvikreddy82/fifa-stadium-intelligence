@@ -8,13 +8,10 @@ import { useCrowdStore } from '@/store/use-crowd-store';
 import { useAppStore } from '@/store/use-app-store';
 import { generateHeatmapData, type HeatmapCell } from '@/lib/crowd-simulation';
 import { cn, getCongestionColor, formatNumber, formatPercent } from '@/lib/utils';
-import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, BarChart, Bar, Cell } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 // ─── Heatmap Grid ─────────────────────────────────────────
 function HeatmapGrid({ data }: { data: HeatmapCell[] }) {
-  const gridSize = 12;
-  const cells = data.filter(c => c.density > 0);
-
   return (
     <div
       role="img"
@@ -108,11 +105,10 @@ function OccupancyTrend() {
 
 // ─── Main Page ─────────────────────────────────────────────
 export default function CrowdPage() {
-  const { crowdData, heatmapData, startAutoRefresh, stopAutoRefresh, isLoading } = useCrowdStore();
+  const { crowdData, heatmapData, startAutoRefresh, stopAutoRefresh } = useCrowdStore();
   const { language } = useAppStore();
   const [aiSummary, setAiSummary] = useState('');
   const [isLoadingAI, setIsLoadingAI] = useState(false);
-  const [selectedZone, setSelectedZone] = useState<string | null>(null);
 
   useEffect(() => {
     startAutoRefresh();

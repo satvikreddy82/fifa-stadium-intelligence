@@ -6,7 +6,6 @@ import { Brain, X, Send, Minimize2, Maximize2, Mic, Volume2, Loader2, RotateCcw 
 import { useAppStore } from '@/store/use-app-store';
 import { cn, generateId, sanitizeInput } from '@/lib/utils';
 import type { ChatMessage } from '@/types';
-import ReactMarkdown from 'react-markdown';
 
 // We'll inline a simple markdown renderer to avoid extra deps
 function SimpleMarkdown({ content }: { content: string }) {
@@ -161,7 +160,7 @@ export function FloatingAssistant() {
     if (!SR) return;
     const recognition = new SR();
     recognition.lang = language;
-    recognition.onresult = (e) => {
+    recognition.onresult = (e: any) => {
       const transcript = e.results[0]?.[0]?.transcript ?? '';
       setInput(transcript);
     };
